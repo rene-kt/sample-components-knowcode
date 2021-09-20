@@ -19,12 +19,15 @@ class _HomePageState extends State<HomePage> {
         ),
         body: SingleChildScrollView(
             child: Stack(children: [
-          Container(height: 800),
+          Container(
+              height:
+                  800), // This line is responsible to set a height to the whole screen
+          // cuz as it's using absolute positions, it also needs to set an absolute height for the screen
           Positioned(
               left: 20,
               top: 20,
               // In flutter, you cannot especify a size for some widgets directly,
-              // so you'll have to wrap into a element who was this attribute, such as the Positioned()
+              // so you'll have to wrap into a element who was this attribute, such as the Container()
               child: Container(
                   width: 300,
                   height: 60,
@@ -91,7 +94,8 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.black),
                     ),
 
-                    value: checkbox,
+                    value:
+                        checkbox, // It's necessary create a bool value to verify if the checkbox is pressed or not, check the line 11
                     checkColor: Colors.white, // icon color
                     activeColor: Colors.purple, // square color
                     onChanged: (newValue) {
@@ -107,8 +111,9 @@ class _HomePageState extends State<HomePage> {
                           fontWeight: FontWeight.w200,
                           color: Colors.black),
                     ),
-                    tileColor: Colors.white,
-                    selectedTileColor: Colors.black,
+                    tileColor: Colors.white, // background color
+                    selectedTileColor:
+                        Colors.black, // background color when it's selected
                   ))),
         ])));
   }
