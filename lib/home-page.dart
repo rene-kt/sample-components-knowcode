@@ -8,6 +8,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool checkbox = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +17,9 @@ class _HomePageState extends State<HomePage> {
           title: Text("Sample componenets KnowCode"),
           backgroundColor: Colors.purple,
         ),
-        body: Stack(children: [
+        body: SingleChildScrollView(
+            child: Stack(children: [
+          Container(height: 800),
           Positioned(
               left: 20,
               top: 20,
@@ -72,6 +76,40 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 25,
                         fontWeight: FontWeight.w700),
                   ))),
-        ]));
+          Positioned(
+              left: 20,
+              top: 600,
+              child: Container(
+                  height: 60,
+                  width: 300,
+                  child: CheckboxListTile(
+                    title: Text(
+                      "Checkbox title",
+                      style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.black),
+                    ),
+
+                    value: checkbox,
+                    checkColor: Colors.white, // icon color
+                    activeColor: Colors.purple, // square color
+                    onChanged: (newValue) {
+                      setState(() {
+                        checkbox = newValue;
+                      });
+                    },
+                    controlAffinity: ListTileControlAffinity.leading,
+                    subtitle: Text(
+                      "Checkbox subtitle",
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w200,
+                          color: Colors.black),
+                    ),
+                    tileColor: Colors.white,
+                    selectedTileColor: Colors.black,
+                  ))),
+        ])));
   }
 }
