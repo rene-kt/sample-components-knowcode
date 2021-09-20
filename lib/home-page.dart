@@ -15,37 +15,63 @@ class _HomePageState extends State<HomePage> {
           title: Text("Sample componenets KnowCode"),
           backgroundColor: Colors.purple,
         ),
-        body: SingleChildScrollView(
-            child: Center(
-                child: Expanded(
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-              Container(
+        body: Stack(children: [
+          Positioned(
+              left: 20,
+              top: 20,
+              // In flutter, you cannot especify a size for some widgets directly,
+              // so you'll have to wrap into a element who was this attribute, such as the Positioned()
+              child: Container(
                   width: 300,
-                  height: 150,
-                  padding: EdgeInsets.all(50),
+                  height: 60,
                   child: ElevatedButton(
                     child: Text("Button, click here!"),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.purple,
-                    ),
+                        primary: Colors.purple,
+                        textStyle: TextStyle(
+                          backgroundColor: Colors.purple,
+                          fontFamily:
+                              'Arial', // you need to import these fonts in the pubsec.yaml, as the same way as images
+                          fontSize: 25,
+                          color: Colors.black,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.w700,
+                        )),
                     onPressed: () {},
-                  )),
-              Container(
-                  width: 300,
-                  height: 150,
+                  ))),
+          Positioned(
+              left: 20,
+              top: 100,
+              child: Container(
+                  height: 200,
+                  width: 200,
                   child: IconButton(
-                    icon: Image.network(
-                        "https://avatars.githubusercontent.com/u/10406833?s=200&v=4"),
+                    icon: Image.asset("lib/assets/knowcode.jpg"),
                     onPressed: () {},
-                  )),
-              Container(
+                  ))),
+          Positioned(
+              left: 20,
+              top: 300,
+              child: Container(
+                  height: 200,
+                  width: 200,
+                  child: Image.asset("lib/assets/totalcross.jpg"))),
+          Positioned(
+              left: 20,
+              top: 500,
+              child: Container(
+                  height: 60,
                   width: 300,
-                  height: 150,
-                  child: Image.network(
-                      "https://avatars.githubusercontent.com/u/79103847?s=200&v=4")),
-              Container(width: 200, height: 150, child: TextField()),
-            ])))));
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: "Type your text",
+                    ),
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w700),
+                  ))),
+        ]));
   }
 }
