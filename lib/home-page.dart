@@ -7,6 +7,12 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
+const button = Key('button');
+const imageView = Key('image-view');
+const imageButton = Key('image-button');
+const editText = Key('edit-text');
+const checkboxKey = Key('checkbox');
+
 class _HomePageState extends State<HomePage> {
   bool checkbox = false;
 
@@ -34,6 +40,7 @@ class _HomePageState extends State<HomePage> {
                   width: 300,
                   height: 60,
                   child: ElevatedButton(
+                    key: button,
                     child: Text("Button, click here!"),
                     style: ElevatedButton.styleFrom(
                         primary: Color.fromRGBO(133, 36, 209, 1.0),
@@ -56,6 +63,7 @@ class _HomePageState extends State<HomePage> {
                   height: 200,
                   width: 200,
                   child: IconButton(
+                    key: imageButton,
                     icon: Image.asset("lib/assets/knowcode.jpg"),
                     onPressed: () {},
                   ))),
@@ -66,7 +74,8 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                   height: 200,
                   width: 200,
-                  child: Image.asset("lib/assets/totalcross.jpg"))),
+                  child: Image.asset("lib/assets/totalcross.jpg",
+                      key: imageView))),
           //EditText
           Positioned(
               left: 20,
@@ -75,6 +84,7 @@ class _HomePageState extends State<HomePage> {
                   height: 60,
                   width: 300,
                   child: TextField(
+                    key: editText,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: "Type your text",
@@ -92,6 +102,7 @@ class _HomePageState extends State<HomePage> {
                   height: 60,
                   width: 300,
                   child: CheckboxListTile(
+                    key: checkboxKey,
                     title: Text(
                       "Checkbox title",
                       style: TextStyle(
