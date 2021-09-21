@@ -8,6 +8,8 @@ class SecondScreen extends StatefulWidget {
 }
 
 class _SecondScreenState extends State<SecondScreen> {
+  int checkRadio = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,6 +39,38 @@ class _SecondScreenState extends State<SecondScreen> {
                         fontSize: 25,
                         fontWeight: FontWeight.w700),
                   ))),
+
+          Positioned(
+            left: 20,
+            top: 100,
+            child: Container(
+                // You have to set the size, otherwise it'll break
+                height: 60,
+                width: 400,
+                child: RadioListTile(
+                  key: Key("radio"),
+                  tileColor: Color.fromRGBO(255, 255, 255, 1),
+                  selectedTileColor: Color.fromRGBO(133, 36, 209, 1.0),
+                  title: Text("Title",
+                      style: TextStyle(
+                          fontSize: 20,
+                          backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+                          color: Color.fromRGBO(0, 0, 0, 1))),
+                  subtitle: Text("Subtitle",
+                      style: TextStyle(
+                          fontSize: 10,
+                          backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+                          color: Color.fromRGBO(0, 0, 0, 1))),
+                  value: 1,
+                  onChanged: (newValue) {
+                    setState(() {
+                      checkRadio = newValue;
+                    });
+                  },
+                  groupValue: checkRadio,
+                  activeColor: Color.fromRGBO(133, 36, 209, 1.0),
+                )),
+          ),
         ])));
   }
 }
