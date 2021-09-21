@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Sample componenets KnowCode"),
-          backgroundColor: Colors.purple,
+          backgroundColor: Color.fromRGBO(133, 36, 209, 1.0),
         ),
         body: SingleChildScrollView(
             child: Stack(children: [
@@ -23,29 +23,32 @@ class _HomePageState extends State<HomePage> {
               height:
                   800), // This line is responsible to set a height to the whole screen
           // cuz as it's using absolute positions, it also needs to set an absolute height for the screen
+
+          //Button
           Positioned(
               left: 20,
               top: 20,
               // In flutter, you cannot especify a size for some widgets directly,
-              // so you'll have to wrap into a element who was this attribute, such as the Container()
+              // so you'll have to wrap into a element who has this attribute, such as the Container()
               child: Container(
                   width: 300,
                   height: 60,
                   child: ElevatedButton(
                     child: Text("Button, click here!"),
                     style: ElevatedButton.styleFrom(
-                        primary: Colors.purple,
+                        primary: Color.fromRGBO(133, 36, 209, 1.0),
                         textStyle: TextStyle(
-                          backgroundColor: Colors.purple,
+                          backgroundColor: Color.fromRGBO(133, 36, 209, 1.0),
                           fontFamily:
                               'Arial', // you need to import these fonts in the pubsec.yaml, as the same way as images
                           fontSize: 25,
-                          color: Colors.black,
+                          color: Color.fromRGBO(0, 0, 0, 1),
                           fontStyle: FontStyle.normal,
                           fontWeight: FontWeight.w700,
                         )),
                     onPressed: () {},
                   ))),
+          // ImageButton
           Positioned(
               left: 20,
               top: 100,
@@ -56,6 +59,7 @@ class _HomePageState extends State<HomePage> {
                     icon: Image.asset("lib/assets/knowcode.jpg"),
                     onPressed: () {},
                   ))),
+          // ImageView
           Positioned(
               left: 20,
               top: 300,
@@ -63,6 +67,7 @@ class _HomePageState extends State<HomePage> {
                   height: 200,
                   width: 200,
                   child: Image.asset("lib/assets/totalcross.jpg"))),
+          //EditText
           Positioned(
               left: 20,
               top: 500,
@@ -75,10 +80,11 @@ class _HomePageState extends State<HomePage> {
                       hintText: "Type your text",
                     ),
                     style: TextStyle(
-                        color: Colors.black,
+                        color: Color.fromRGBO(0, 0, 0, 1),
                         fontSize: 25,
                         fontWeight: FontWeight.w700),
                   ))),
+          // Checkbox
           Positioned(
               left: 20,
               top: 600,
@@ -91,13 +97,14 @@ class _HomePageState extends State<HomePage> {
                       style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.w700,
-                          color: Colors.black),
+                          color: Color.fromRGBO(0, 0, 0, 1)),
                     ),
 
                     value:
                         checkbox, // It's necessary create a bool value to verify if the checkbox is pressed or not, check the line 11
-                    checkColor: Colors.white, // icon color
-                    activeColor: Colors.purple, // square color
+                    checkColor: Color.fromRGBO(255, 255, 255, 1), // icon color
+                    activeColor:
+                        Color.fromRGBO(133, 36, 209, 1.0), // square color
                     onChanged: (newValue) {
                       setState(() {
                         checkbox = newValue;
@@ -109,11 +116,12 @@ class _HomePageState extends State<HomePage> {
                       style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w200,
-                          color: Colors.black),
+                          color: Color.fromRGBO(0, 0, 0, 1)),
                     ),
-                    tileColor: Colors.white, // background color
-                    selectedTileColor:
-                        Colors.black, // background color when it's selected
+                    tileColor:
+                        Color.fromRGBO(255, 255, 255, 1), // background color
+                    selectedTileColor: Color.fromRGBO(
+                        0, 0, 0, 1), // background color when it's selected
                   ))),
         ])));
   }
