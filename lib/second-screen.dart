@@ -18,17 +18,25 @@ class _SecondScreenState extends State<SecondScreen> {
         body: SingleChildScrollView(
             child: Stack(children: [
           Container(height: 800),
+
+          // EditText
           Positioned(
               left: 20,
               top: 20,
-              child: Text(
-                "This is a simple text",
-                style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.w800,
-                    color: Color.fromRGBO(133, 36, 209, 1.0),
-                    wordSpacing: 1.0),
-              )),
+              child: Container(
+                  height: 60,
+                  width: 300,
+                  child: TextField(
+                    key: Key('edit-text'),
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: "Type your text",
+                    ),
+                    style: TextStyle(
+                        color: Color.fromRGBO(0, 0, 0, 1),
+                        fontSize: 25,
+                        fontWeight: FontWeight.w700),
+                  ))),
         ])));
   }
 }

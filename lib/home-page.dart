@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sample_components_knowcode/second-screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -6,12 +7,6 @@ class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
-
-const button = Key('button');
-const imageView = Key('image-view');
-const imageButton = Key('image-button');
-const editText = Key('edit-text');
-const checkboxKey = Key('checkbox');
 
 class _HomePageState extends State<HomePage> {
   bool checkbox = false;
@@ -40,8 +35,8 @@ class _HomePageState extends State<HomePage> {
                   width: 300,
                   height: 60,
                   child: ElevatedButton(
-                    key: button,
-                    child: Text("Button, click here!"),
+                    key: Key("button"),
+                    child: Text("Button, go to the next screen!"),
                     style: ElevatedButton.styleFrom(
                         primary: Color.fromRGBO(133, 36, 209, 1.0),
                         textStyle: TextStyle(
@@ -53,7 +48,12 @@ class _HomePageState extends State<HomePage> {
                           fontStyle: FontStyle.normal,
                           fontWeight: FontWeight.w700,
                         )),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SecondScreen()),
+                      );
+                    },
                   ))),
           // ImageButton
           Positioned(
@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                   height: 200,
                   width: 200,
                   child: IconButton(
-                    key: imageButton,
+                    key: Key('image-button'),
                     icon: Image.asset("lib/assets/knowcode.jpg"),
                     onPressed: () {},
                   ))),
@@ -75,25 +75,21 @@ class _HomePageState extends State<HomePage> {
                   height: 200,
                   width: 200,
                   child: Image.asset("lib/assets/totalcross.jpg",
-                      key: imageView))),
-          //EditText
+                      key: Key('image-view')))),
+          //TextView
           Positioned(
               left: 20,
               top: 500,
-              child: Container(
-                  height: 60,
-                  width: 300,
-                  child: TextField(
-                    key: editText,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: "Type your text",
-                    ),
-                    style: TextStyle(
-                        color: Color.fromRGBO(0, 0, 0, 1),
-                        fontSize: 25,
-                        fontWeight: FontWeight.w700),
-                  ))),
+              child: Text(
+                "This is a simple text",
+                style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.w800,
+                    backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
+                    color: Color.fromRGBO(133, 36, 209, 1.0),
+                    wordSpacing: 1.0),
+              )),
+
           // Checkbox
           Positioned(
               left: 20,
@@ -102,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                   height: 60,
                   width: 300,
                   child: CheckboxListTile(
-                    key: checkboxKey,
+                    key: Key("checkbox"),
                     title: Text(
                       "Checkbox title",
                       style: TextStyle(
