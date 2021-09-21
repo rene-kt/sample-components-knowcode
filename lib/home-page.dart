@@ -10,6 +10,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool checkbox = false;
+  String text = "This is a sample text";
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +22,10 @@ class _HomePageState extends State<HomePage> {
         body: SingleChildScrollView(
             child: Stack(children: [
           Container(
-              height:
-                  800), // This line is responsible to set a height to the whole screen
+            height: 800,
+            width: 400,
+          ),
+          // This line is responsible to set a height to the whole screen
           // cuz as it's using absolute positions, it also needs to set an absolute height for the screen
 
           //Button
@@ -40,7 +43,6 @@ class _HomePageState extends State<HomePage> {
                     style: ElevatedButton.styleFrom(
                         primary: Color.fromRGBO(133, 36, 209, 1.0),
                         textStyle: TextStyle(
-                          backgroundColor: Color.fromRGBO(133, 36, 209, 1.0),
                           fontFamily:
                               'Arial', // you need to import these fonts in the pubsec.yaml, as the same way as images
                           fontSize: 25,
@@ -49,10 +51,10 @@ class _HomePageState extends State<HomePage> {
                           fontWeight: FontWeight.w700,
                         )),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SecondScreen()),
-                      );
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SecondScreen()));
                     },
                   ))),
           // ImageButton
@@ -79,9 +81,9 @@ class _HomePageState extends State<HomePage> {
           //TextView
           Positioned(
               left: 20,
-              top: 500,
+              top: 550,
               child: Text(
-                "This is a simple text",
+                text,
                 style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.w800,
