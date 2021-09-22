@@ -9,6 +9,7 @@ class SecondScreen extends StatefulWidget {
 
 class _SecondScreenState extends State<SecondScreen> {
   int checkRadio = 0;
+  double sliderValue = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -86,6 +87,29 @@ class _SecondScreenState extends State<SecondScreen> {
                       133, 36, 209, 1.0)), // Color of the animation
                 )),
           ),
+
+          //Slider
+          Positioned(
+              left: 20,
+              top: 250,
+              child: Container(
+                height: 10,
+                width: 400,
+                child: Slider(
+                  key: Key("slider"),
+                  activeColor: Color.fromRGBO(133, 36, 209, 1.0),
+                  inactiveColor: Color.fromRGBO(255, 255, 255, 1),
+                  min: 0,
+                  max: 100,
+                  value: sliderValue,
+                  label: "Slider",
+                  onChanged: (double value) {
+                    setState(() {
+                      sliderValue = value;
+                    });
+                  },
+                ),
+              )),
         ])));
   }
 }
