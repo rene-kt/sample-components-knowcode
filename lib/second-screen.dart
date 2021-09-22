@@ -44,7 +44,7 @@ class _SecondScreenState extends State<SecondScreen> {
             left: 20,
             top: 100,
             child: Container(
-                // You have to set the size, otherwise it'll break
+                // You have to set the size with a Container to use a RadioListTile, otherwise it'll break
                 height: 60,
                 width: 400,
                 child: RadioListTile(
