@@ -95,20 +95,28 @@ class _SecondScreenState extends State<SecondScreen> {
               top: 250,
               child: Container(
                 height: 10,
-                width: 400,
-                child: Slider(
-                  key: Key("slider"),
-                  activeColor: Color.fromRGBO(133, 36, 209, 1.0),
-                  inactiveColor: Color.fromRGBO(255, 255, 255, 1),
-                  min: 0,
-                  max: 100,
-                  value: sliderValue,
-                  label: "Slider",
-                  onChanged: (double value) {
-                    setState(() {
-                      sliderValue = value;
-                    });
-                  },
+                width: 300,
+                child: SliderTheme(
+                  data: SliderTheme.of(context).copyWith(
+                    activeTrackColor: Color.fromRGBO(133, 36, 209, 1.0),
+                    inactiveTrackColor: Color.fromRGBO(133, 36, 209, 0.5),
+                    trackHeight: 4.0,
+                    thumbColor: Color.fromRGBO(255, 255, 255, 1.0),
+                  ),
+                  child: Slider(
+                    value: sliderValue,
+                    min: 0,
+                    max: 100,
+                    divisions: 10,
+                    label: sliderValue.toString(),
+                    onChanged: (value) {
+                      setState(
+                        () {
+                          sliderValue = value;
+                        },
+                      );
+                    },
+                  ),
                 ),
               )),
 
