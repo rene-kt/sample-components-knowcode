@@ -39,7 +39,7 @@ class _SecondScreenState extends State<SecondScreen> {
                         fontSize: 25,
                         fontWeight: FontWeight.w700),
                   ))),
-
+          // RadioButton
           Positioned(
             left: 20,
             top: 100,
@@ -69,6 +69,21 @@ class _SecondScreenState extends State<SecondScreen> {
                   },
                   groupValue: checkRadio,
                   activeColor: Color.fromRGBO(133, 36, 209, 1.0),
+                )),
+          ),
+
+          // ProgressBar
+          Positioned(
+            left: 20,
+            top: 200,
+            child: Container(
+                height: 10,
+                width: 400,
+                child: LinearProgressIndicator(
+                  key: Key("progress"),
+                  backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+                  valueColor: AlwaysStoppedAnimation<Color>(Color.fromRGBO(
+                      133, 36, 209, 1.0)), // Color of the animation
                 )),
           ),
         ])));
