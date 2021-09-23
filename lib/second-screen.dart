@@ -12,7 +12,8 @@ class _SecondScreenState extends State<SecondScreen> {
   double seekbarValue = 0.0;
   bool switchValue = false;
   List<String> spinnerValues = ["test1", "test2", "test3"];
-  String spinnerSelectedValue = "test1";
+  String spinnerSelectedValue =
+      "test1"; // Be careful to initialize a value that contains in the list of values, otherwise it'll break
 
   @override
   Widget build(BuildContext context) {
@@ -153,7 +154,8 @@ class _SecondScreenState extends State<SecondScreen> {
                 child: DropdownButton(
                   hint: Text("Select one item"), //placeholder
                   dropdownColor: Color.fromRGBO(255, 255, 255, 1),
-                  isExpanded: true,
+                  isExpanded:
+                      true, // This line is responsible to adjust the width and the height as the same way than its parent
                   key: Key('dropdown'),
                   value: spinnerSelectedValue,
                   onChanged: (newValue) {
