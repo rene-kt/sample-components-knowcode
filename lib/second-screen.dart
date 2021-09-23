@@ -9,7 +9,7 @@ class SecondScreen extends StatefulWidget {
 
 class _SecondScreenState extends State<SecondScreen> {
   int checkRadio = 0;
-  double sliderValue = 0.0;
+  double seekbarValue = 0.0;
   bool switchValue = false;
 
   @override
@@ -89,7 +89,7 @@ class _SecondScreenState extends State<SecondScreen> {
                 )),
           ),
 
-          //Slider
+          //SeekBar
           Positioned(
               left: 20,
               top: 250,
@@ -104,15 +104,15 @@ class _SecondScreenState extends State<SecondScreen> {
                     thumbColor: Color.fromRGBO(255, 255, 255, 1.0),
                   ),
                   child: Slider(
-                    value: sliderValue,
+                    value: seekbarValue,
                     min: 0,
                     max: 100,
                     divisions: 10,
-                    label: sliderValue.toString(),
+                    label: seekbarValue.toString(),
                     onChanged: (value) {
                       setState(
                         () {
-                          sliderValue = value;
+                          seekbarValue = value;
                         },
                       );
                     },
