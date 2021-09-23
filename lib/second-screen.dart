@@ -11,6 +11,8 @@ class _SecondScreenState extends State<SecondScreen> {
   int checkRadio = 0;
   double seekbarValue = 0.0;
   bool switchValue = false;
+  List<String> spinnerValues = ["test1", "test2", "test3"];
+  String spinnerSelectedValue = "test1";
 
   @override
   Widget build(BuildContext context) {
@@ -138,6 +140,40 @@ class _SecondScreenState extends State<SecondScreen> {
                   title: Text("Title"),
                   subtitle: Text("Subtitle"),
                   tileColor: Color.fromRGBO(255, 255, 255, 1),
+                ),
+              )),
+
+          // Spinner
+          Positioned(
+              left: 20,
+              top: 400,
+              child: Container(
+                height: 70,
+                width: 250,
+                child: DropdownButton(
+                  hint: Text("Select one item"), //placeholder
+                  dropdownColor: Color.fromRGBO(255, 255, 255, 1),
+                  isExpanded: true,
+                  key: Key('dropdown'),
+                  value: spinnerSelectedValue,
+                  onChanged: (newValue) {
+                    setState(() {
+                      spinnerSelectedValue = newValue;
+                    });
+                  },
+                  items: spinnerValues
+                      .map(
+                        (String spinnerValue) => DropdownMenuItem<String>(
+                          value: spinnerValue,
+                          child: Text(
+                            spinnerValue,
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Color.fromRGBO(133, 29, 160, 1)),
+                          ),
+                        ),
+                      )
+                      .toList(),
                 ),
               ))
         ])));
